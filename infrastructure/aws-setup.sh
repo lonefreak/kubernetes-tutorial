@@ -47,7 +47,7 @@ function createKubernetesMachine() {
     if [ "${NODE_TYPE}" == "controller" ]; then IP_TERMINATION=1${NODE_INDEX}; fi
     if [ "${NODE_TYPE}" == "worker" ]; then IP_TERMINATION=2${NODE_INDEX}; fi
     local PRIVATE_IP_ADDRESS="10.240.0.${IP_TERMINATION}"
-    local CONTROLLER_TAG="${NODE_TYPE}${MACHINE_INDEX}"
+    local CONTROLLER_TAG="${NODE_TYPE}${NODE_INDEX}"
     
     echo "Creating instance ${CONTROLLER_TAG}"
     CONTROLLER_INSTANCE_ID=$(aws ec2 run-instances \
